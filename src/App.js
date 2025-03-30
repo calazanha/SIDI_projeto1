@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import './App.css'; 
 import CriarBanco from './components/CriarBanco/CriarBanco';
 import CriarTabela from './components/CriarTabela/CriarTabela';
 import InserirRegistro from './components/InserirRegistro/InserirRegistro';
