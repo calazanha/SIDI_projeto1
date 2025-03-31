@@ -1,33 +1,37 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./CriarTabela.css"; // Mantendo o estilo anterior
+import "./CriarTabela.css"; // Certifique-se de ter um arquivo CSS com o estilo do alerta
 
 function CriarTabela() {
   const [bancos, setBancos] = useState([]);
   const [bancoSelecionado, setBancoSelecionado] = useState("");
   const [nomeTabela, setNomeTabela] = useState("");
   const [colunas, setColunas] = useState([{ nome: "", tipo: "VARCHAR(255)" }]);
-  const [mensagem, setMensagem] = useState("");
+  const [mensagem, setMensagem] = useState(""); // Estado para mensagem de alerta
 
+  // Carregar bancos ao iniciar o componente
   useEffect(() => {
     axios.get("http://localhost:3001/listar-bancos")
       .then((res) => setBancos(res.data))
       .catch((err) => console.error("Erro ao buscar bancos:", err));
   }, []);
 
+  // Adicionar uma nova coluna ao formulário
   const adicionarColuna = () => {
     setColunas([...colunas, { nome: "", tipo: "VARCHAR(255)" }]);
   };
 
+  // Atualizar os dados da coluna
   const atualizarColuna = (index, key, value) => {
     const novasColunas = [...colunas];
     novasColunas[index][key] = value;
     setColunas(novasColunas);
   };
 
+  // Criar a tabela no banco selecionado
   const criarTabela = () => {
     if (!bancoSelecionado || !nomeTabela || colunas.length === 0) {
-      setMensagem("Preencha todos os campos.");
+      setMensagem({ texto: "Preencha todos os campos.", tipo: "erro" });
       return;
     }
 
@@ -36,8 +40,12 @@ function CriarTabela() {
       nomeTabela,
       colunas,
     })
-      .then((res) => setMensagem(res.data))
-      .catch(() => setMensagem("Erro ao criar tabela."));
+    .then((res) => {
+      setMensagem({ texto: "Tabela criada com sucesso!", tipo: "sucesso" }); // Alerta de sucesso
+    })
+    .catch(() => {
+      setMensagem({ texto: "Erro ao criar tabela.", tipo: "erro" }); // Alerta de erro
+    });
   };
 
   return (
@@ -46,7 +54,7 @@ function CriarTabela() {
 
       {/* Seleção do Banco */}
       <label>Escolha um Banco:</label>
-      <select onChange={(e) => setBancoSelecionado(e.target.value)}>
+      <select onChange={(e) => setBancoSelecionado(e.target.value)} value={bancoSelecionado}>
         <option value="">Selecione um banco</option>
         {bancos.map((banco) => (
           <option key={banco} value={banco}>{banco}</option>
@@ -62,7 +70,7 @@ function CriarTabela() {
         placeholder="Digite o nome da tabela" 
       />
 
-      {/* Campos para colunas */}
+      {/* Campos para definir as colunas */}
       <h3>Definir Colunas:</h3>
       {colunas.map((coluna, index) => (
         <div key={index} className="coluna">
@@ -90,7 +98,12 @@ function CriarTabela() {
       {/* Botão para criar a tabela */}
       <button onClick={criarTabela}>Criar Tabela</button>
 
-      <p>{mensagem}</p>
+      {/* Exibição da mensagem de sucesso ou erro */}
+      {mensagem.texto && (
+        <div className={`alerta ${mensagem.tipo}`}>
+          {mensagem.texto}
+        </div>
+      )}
     </div>
   );
 }

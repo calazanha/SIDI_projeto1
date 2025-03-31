@@ -1,46 +1,21 @@
 /* CriarTabela.css */
 
-div {
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 30px;
-  width: 100%;
-  max-width: 500px;
+/* Alerta de sucesso (fundo verde e texto branco) */
+.alerta.sucesso {
+  background-color: #28a745;
+  color: white;
+  padding: 10px;
+  margin-top: 15px;
+  border-radius: 5px;
   text-align: center;
 }
 
-label {
-  font-size: 16px;
-  font-weight: bold;
-  display: block;
-  margin-top: 15px;
-}
-
-input, select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ddd;
-}
-
-.coluna {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-button {
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #4CAF50;
+/* Alerta de erro (fundo vermelho e texto branco) */
+.alerta.erro {
+  background-color: #dc3545;
   color: white;
-  border: none;
+  padding: 10px;
+  margin-top: 15px;
   border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #388E3C;
+  text-align: center;
 }

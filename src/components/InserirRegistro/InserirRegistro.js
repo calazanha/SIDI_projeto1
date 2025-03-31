@@ -80,7 +80,7 @@ function InserirRegistro() {
       </select>
 
       {/* Seleção da Tabela */}
-      <label>Escolha uma Tabela:</label>
+    
       <select onChange={(e) => setTabelaSelecionada(e.target.value)} value={tabelaSelecionada}>
         <option value="">Selecione uma tabela</option>
         {tabelas.map((tabela) => (
