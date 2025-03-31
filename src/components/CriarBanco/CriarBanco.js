@@ -1,37 +1,41 @@
 import React, { useState } from "react";
-import './CriarBanco.css'; 
 
-const CriarBanco = () => {
-  // Estado para o nome do banco
+function CriarBanco() {
   const [nomeBanco, setNomeBanco] = useState("");
 
-  // Função para lidar com a submissão do formulário
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert(`Banco de dados "${nomeBanco}" criado com sucesso!`);
-    // Aqui você pode adicionar a lógica para criar o banco de dados via backend
+  const criarBanco = async () => {
+    if (!nomeBanco) {
+      alert("Digite um nome para o banco de dados!");
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3001/criar-banco", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nomeBanco }),
+      });
+
+      const data = await response.json();
+      alert(data.mensagem || data.erro);
+    } catch (error) {
+      alert("Erro ao conectar com o servidor");
+      console.error("Erro:", error);
+    }
   };
 
   return (
     <div>
-      <h1 style={{ fontWeight: "bold" }}>Criação de Banco de Dados</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="nomeBanco">Novo Banco de Dados:</label>
-          <input
-            type="text"
-            id="nomeBanco"
-            name="nomeBanco"
-            value={nomeBanco}
-            onChange={(e) => setNomeBanco(e.target.value)}
-            placeholder="Digite o nome do banco"
-            required
-          />
-        </div>
-        <button type="submit">Criar Banco de Dados</button>
-      </form>
+      <h1>Criar Banco de Dados</h1>
+      <input
+        type="text"
+        placeholder="Nome do Banco"
+        value={nomeBanco}
+        onChange={(e) => setNomeBanco(e.target.value)}
+      />
+      <button onClick={criarBanco}>Criar Banco</button>
     </div>
   );
-};
+}
 
 export default CriarBanco;
