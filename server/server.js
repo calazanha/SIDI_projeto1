@@ -97,27 +97,23 @@ app.post("/criar-banco", (req, res) => {
 });
 
 app.post("/criar-tabela", (req, res) => {
-    const { banco, nomeTabela, colunas } = req.body;
+  const { banco, nomeTabela, colunas } = req.body;
 
-    if (!banco || !nomeTabela || !colunas || colunas.length === 0) {
-        return res.status(400).send("Dados insuficientes.");
+  if (!banco || !nomeTabela || !colunas || colunas.length === 0) {
+    return res.status(400).send("Dados insuficientes.");
+  }
+
+  let colunasSQL = colunas.map(col => `${col.nome} ${col.tipo}`).join(", ");
+  const sql = `CREATE TABLE IF NOT EXISTS ${banco}.${nomeTabela} (${colunasSQL})`;
+
+  db.query(sql, (err, result) => {
+    if (err) {
+      console.error("Erro ao criar tabela:", err);
+      res.status(500).send("Erro ao criar tabela.");
+    } else {
+      res.send(`Tabela "${nomeTabela}" criada no banco "${banco}".`);
     }
-
-    let colunasSQL = colunas.map(col => `${col.nome} ${col.tipo}`).join(", ");
-
-    const sql = `CREATE TABLE IF NOT EXISTS ${banco}.${nomeTabela} (
-        id INT AUTO_INCREMENT PRIMARY KEY, 
-        ${colunasSQL}
-    )`;
-
-    db.query(sql, (err, result) => {
-        if (err) {
-            console.error("Erro ao criar tabela:", err);
-            res.status(500).send("Erro ao criar tabela.");
-        } else {
-            res.send(`Tabela "${nomeTabela}" criada no banco "${banco}".`);
-        }
-    });
+  });
 });
 
 app.post("/inserir-registro", (req, res) => {
@@ -141,7 +137,6 @@ app.post("/inserir-registro", (req, res) => {
   });
 });
 
-// Rota para listar bancos de dados existentes
 app.get('/listar-bancos', (req, res) => {
   const sql = "SHOW DATABASES";
   
