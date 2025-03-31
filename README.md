@@ -18,51 +18,68 @@ Este é um projeto simples que utiliza **React.js** no front-end e **Node.js** n
 
 ## Como Executar o Projeto
 
-### Pré-requisitos
+### 1. Requisitos
+Antes de iniciar, certifique-se de que possui os seguintes softwares instalados:
 
-Antes de começar, verifique se você tem os seguintes itens instalados:
+- [Node.js](https://nodejs.org/) (versão 16 ou superior)
+- [MySQL](https://dev.mysql.com/downloads/) (ou um banco de dados compatível)
 
-- **Node.js** (versão 16 ou superior)
-- **MySQL** (ou outro sistema de banco de dados compatível)
+### 2. Configuração do Banco de Dados
+1. Inicie o MySQL e crie um banco de dados:
+   ```sql
+   CREATE DATABASE nome_do_banco;
+   ```
+2. Configure um usuário e senha para conexão com o banco (se necessário).
+3. Atualize as configurações de conexão no back-end do projeto.
 
-### Rodando o Backend
-
+### 3. Executando o Back-end
 1. Clone o repositório:
    ```bash
    git clone https://github.com/seu-usuario/projeto.git
    cd projeto
    ```
-
-2. Instale as dependências do backend:
+2. Instale as dependências do back-end:
    ```bash
    cd server
    npm install
    ```
-
 3. Inicie o servidor:
    ```bash
    npm start
    ```
-
 4. O servidor estará rodando na porta `3001`.
 
-### Rodando o Frontend
-
-1. No diretório raiz do projeto, instale as dependências do frontend:
+### 4. Executando o Front-end
+1. No diretório raiz do projeto, instale as dependências do front-end:
    ```bash
    cd frontend
    npm install
    ```
-
 2. Inicie o servidor de desenvolvimento:
    ```bash
    npm start
    ```
+3. O front-end estará acessível em `http://localhost:3000`.
 
-3. O frontend estará acessível em `http://localhost:3000`.
+## 5. Testando o Projeto
+1. Abra o navegador e acesse `http://localhost:3000`.
+2. Utilize a interface para criar um banco de dados, tabelas e inserir registros.
+3. Visualize as tabelas e registros criados.
 
-## Vídeo de Teste
-
+## 6. Vídeo de Demonstração
 Confira o vídeo de teste do aplicativo no link abaixo:
 
 [Vídeo de Teste do App](https://drive.google.com/file/d/1_SF5sAcuiMNJ0Zxig3B8DQNppJNbt37S/view?usp=sharing)
+
+## 7. Contribuição
+Se deseja contribuir com o projeto:
+1. Faça um fork deste repositório.
+2. Crie uma branch para suas modificações (`git checkout -b feature/nova-funcionalidade`).
+3. Faça suas alterações e commit (`git commit -m "Descrição da alteração"`).
+4. Envie suas mudanças para o repositório remoto (`git push origin feature/nova-funcionalidade`).
+5. Abra um pull request para revisão.
+
+## 8. Licença
+Este projeto está licenciado sob a Licença MIT. Para mais detalhes, consulte o arquivo `LICENSE`.
+
+---
