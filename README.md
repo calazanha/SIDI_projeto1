@@ -1,70 +1,68 @@
-# Getting Started with Create React App
+# Projeto de Criação de Banco de Dados com React.js e Node.js
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este é um projeto simples que utiliza **React.js** no front-end e **Node.js** no back-end, permitindo que o usuário crie bancos de dados, tabelas e registre dados de forma interativa.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+- **Criação de Banco de Dados**: Permite ao usuário criar um banco de dados.
+- **Criação de Tabelas**: Após a criação de um banco de dados, o usuário pode criar tabelas e definir as colunas.
+- **Inserção de Registros**: O usuário pode inserir registros nas tabelas criadas.
+- **Listagem de Bancos, Tabelas e Registros**: O sistema lista os bancos de dados existentes, tabelas e registros em tempo real.
 
-### `npm start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **React.js**: Para o desenvolvimento do front-end.
+- **Node.js**: Para o desenvolvimento do back-end.
+- **MySQL**: Para o gerenciamento de banco de dados.
+- **Axios**: Para comunicação entre o front-end e o back-end.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Como Executar o Projeto
 
-### `npm test`
+### Pré-requisitos
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Antes de começar, verifique se você tem os seguintes itens instalados:
 
-### `npm run build`
+- **Node.js** (versão 16 ou superior)
+- **MySQL** (ou outro sistema de banco de dados compatível)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Rodando o Backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/seu-usuario/projeto.git
+   cd projeto
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Instale as dependências do backend:
+   ```bash
+   cd server
+   npm install
+   ```
 
-### `npm run eject`
+3. Inicie o servidor:
+   ```bash
+   npm start
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. O servidor estará rodando na porta `3001`.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Rodando o Frontend
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+1. No diretório raiz do projeto, instale as dependências do frontend:
+   ```bash
+   cd frontend
+   npm install
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+2. Inicie o servidor de desenvolvimento:
+   ```bash
+   npm start
+   ```
 
-## Learn More
+3. O frontend estará acessível em `http://localhost:3000`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Vídeo de Teste
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Confira o vídeo de teste do aplicativo no link abaixo:
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[Vídeo de Teste do App](https://drive.google.com/file/d/1_SF5sAcuiMNJ0Zxig3B8DQNppJNbt37S/view?usp=sharing)
