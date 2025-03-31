@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./InserirRegistro.css"; // Criamos um novo CSS
+import "./InserirRegistro.css";
 
 function InserirRegistro() {
   const [bancos, setBancos] = useState([]);
@@ -11,14 +11,12 @@ function InserirRegistro() {
   const [valores, setValores] = useState({});
   const [mensagem, setMensagem] = useState("");
 
-  // Carregar bancos de dados
   useEffect(() => {
     axios.get("http://localhost:3001/listar-bancos")
       .then(res => setBancos(res.data))
       .catch(err => console.error("Erro ao buscar bancos:", err));
   }, []);
 
-  // Carregar tabelas do banco selecionado
   useEffect(() => {
     if (bancoSelecionado) {
       axios.get(`http://localhost:3001/listar-tabelas?banco=${bancoSelecionado}`)
@@ -27,14 +25,13 @@ function InserirRegistro() {
     }
   }, [bancoSelecionado]);
 
-  // Carregar campos da tabela selecionada
   useEffect(() => {
     if (tabelaSelecionada) {
       axios.get(`http://localhost:3001/listar-campos?banco=${bancoSelecionado}&tabela=${tabelaSelecionada}`)
         .then(res => {
           setCampos(res.data);
           const valoresIniciais = {};
-          res.data.forEach(campo => valoresIniciais[campo] = "");
+          res.data.forEach(campo => valoresIniciais[campo.nome] = "");
           setValores(valoresIniciais);
         })
         .catch(err => console.error("Erro ao buscar campos:", err));
@@ -86,12 +83,12 @@ function InserirRegistro() {
         <>
           <h3>Preencha os Dados:</h3>
           {campos.map(campo => (
-            <div key={campo}>
-              <label>{campo}:</label>
+            <div key={campo.nome} className="campo">
+              <label>{campo.nome} ({campo.tipo}):</label>
               <input
                 type="text"
-                value={valores[campo]}
-                onChange={(e) => handleChange(campo, e.target.value)}
+                value={valores[campo.nome]}
+                onChange={(e) => handleChange(campo.nome, e.target.value)}
               />
             </div>
           ))}

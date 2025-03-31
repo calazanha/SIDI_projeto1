@@ -1,45 +1,68 @@
-/* ListarRegistro.css */
+.listar-registro-container {
+  text-align: center;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 20px auto;
+}
 
-div {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 30px;
-    width: 100%;
-    max-width: 500px;
-    text-align: center;
-  }
-  
-  h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333333;
-    margin-bottom: 20px;
-  }
-  
-  p {
-    font-size: 16px;
-    color: #555;
-    margin-bottom: 20px;
-  }
-  
-  button {
-    padding: 12px 20px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 100%;
-  }
-  
-  button:hover {
-    background-color: #45a049;
-  }
-  
-  button:active {
-    background-color: #388e3c;
-  }
-  
+select {
+  padding: 10px;
+  margin: 10px;
+  border: 2px solid #4CAF50;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 80%;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #388E3C;
+}
+
+table {
+  width: 100%;
+  margin-top: 20px;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+th {
+  background-color: #4CAF50;
+  color: white;
+  font-weight: bold;
+}
+
+td {
+  background-color: #f9f9f9;
+  color: #333;  /* Cor de texto mais escura para contrastar com o fundo claro */
+}
+
+td:nth-child(even) {
+  background-color: #f1f1f1; /* Alterna o fundo das células para melhorar a leitura */
+}
+
+td:hover {
+  background-color: #e0e0e0; /* Um fundo mais claro ao passar o mouse para destacar */
+}
+
+.erro {
+  color: red;
+  margin-top: 10px;
+}
