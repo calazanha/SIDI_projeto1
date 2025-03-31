@@ -32,7 +32,7 @@ Antes de iniciar, certifique-se de que possui os seguintes softwares instalados:
 ### 3. Executando o Back-end
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/seu-usuario/projeto.git
+   git clone https://github.com/calazanha/SIDI_projeto1
    cd projeto
    ```
 2. Instale as dependências do back-end:
