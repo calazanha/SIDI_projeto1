@@ -25,10 +25,7 @@ Antes de iniciar, certifique-se de que possui os seguintes softwares instalados:
 - [MySQL](https://dev.mysql.com/downloads/) (ou um banco de dados compatível)
 
 ### 2. Configuração do Banco de Dados
-1. Inicie o MySQL e crie um banco de dados:
-   ```sql
-   CREATE DATABASE nome_do_banco;
-   ```
+1. Inicie o Servidor Apache e o MySQL.
 2. Configure um usuário e senha para conexão com o banco (se necessário).
 3. Atualize as configurações de conexão no back-end do projeto.
 
@@ -70,16 +67,3 @@ Antes de iniciar, certifique-se de que possui os seguintes softwares instalados:
 Confira o vídeo de teste do aplicativo no link abaixo:
 
 [Vídeo de Teste do App](https://drive.google.com/file/d/1_SF5sAcuiMNJ0Zxig3B8DQNppJNbt37S/view?usp=sharing)
-
-## 7. Contribuição
-Se deseja contribuir com o projeto:
-1. Faça um fork deste repositório.
-2. Crie uma branch para suas modificações (`git checkout -b feature/nova-funcionalidade`).
-3. Faça suas alterações e commit (`git commit -m "Descrição da alteração"`).
-4. Envie suas mudanças para o repositório remoto (`git push origin feature/nova-funcionalidade`).
-5. Abra um pull request para revisão.
-
-## 8. Licença
-Este projeto está licenciado sob a Licença MIT. Para mais detalhes, consulte o arquivo `LICENSE`.
-
----
